@@ -1,4 +1,4 @@
-# Cozir CO2 Sensor Arduino Library
+# Cozir CO2 Sensor ESP32 Library
 
 This library was originally authored by [DirtGambit](http://forum.arduino.cc/index.php?action=profile;u=47469).
 
@@ -12,10 +12,8 @@ The datasheet for the Cozir sensors is available on:
 ## Example Sketch
 
 ```cpp
-#include <SoftwareSerial.h>
 #include "cozir.h"
-
-SoftwareSerial nss(2,3);
+HardwareSerial nss(2);
 COZIR czr(nss);
 
 void setup()
