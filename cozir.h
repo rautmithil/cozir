@@ -1,6 +1,6 @@
 // 
 //       FILE: Cozir.h
-//     AUTHOR: Rob Tillaart & Michael Hawthorne
+//     AUTHOR: Rob Tillaart & Michael Hawthorne modified by Mithil Raut to support ESP32
 //    VERSION: 0.1.01
 //    PURPOSE: library for COZIR range of sensors for Arduino
 //        URL: http://www.cozir.com/
@@ -14,7 +14,7 @@
 #ifndef Cozir_h
 #define Cozir_h
 
-#include "SoftwareSerial.h"
+//#include "SoftwareSerial.h"
 
 #if defined(ARDUINO) && ARDUINO >= 100
   #include "Arduino.h"
@@ -55,7 +55,7 @@
 class COZIR
 {
   public:
-	COZIR(SoftwareSerial&);// : CZR_Serial(nss)
+	COZIR(HardwareSerial&);// : CZR_Serial(nss)
 	
 	void SetOperatingMode(uint8_t mode);
 		
@@ -86,7 +86,7 @@ class COZIR
 	void GetConfiguration();
   
   private:
-    SoftwareSerial& CZR_Serial;
+    HardwareSerial& CZR_Serial;
     char buffer[20];
 	void Command(char* );
 	uint16_t Request(char* );
